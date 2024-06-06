@@ -1,0 +1,103 @@
+#LLQID_IntroContainer {
+  @include positionFullWidth(fixed);
+  overflow: hidden;
+  background-color: #000;
+  &.scene1 {
+    .LLQID_IntroBg {
+      transform: skew(-5deg);
+      opacity: 0;
+    }
+    .LLQID_IntroBgInner {
+      transform: skew(5deg);
+      background-position: left center;
+    }
+  }
+}
+
+.LLQID_IntroBg,
+.LLQID_IntroBgBehind {
+  @include positionFullWidth();
+  overflow: hidden;
+  width: auto;
+  left: 50%;
+  right: 50%;
+  z-index: 2;
+}
+.LLQID_IntroBgInner,
+.LLQID_IntroBgBehindInner {
+  background-size: cover;
+  background-position: 50% 50%;
+  @include positionFullWidth();
+  width: auto;
+  left: -50px;
+  right: -50px;
+}
+.LLQID_IntroBgOverlay {
+  @include positionFullWidth();
+  background-color: #000;
+  opacity: 0.5;
+  z-index: 3;
+}
+
+.LLQID_IntroBgNextScene {
+  opacity: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  @include positionFullWidth();
+}
+
+.LLQID_IntroMessageContainer {
+  @include absolutecenter();
+  display: flex;
+  align-items: center;
+  z-index: 3;
+  .LLQID_IntroMessageLiquid {
+    height: 5rem;
+    width: 5rem;
+    margin: 0 0 0 1rem;
+    position: relative;
+  }
+  #LLQID_liquidContainer {
+    .LLQID_liquidContainerInner {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+.LLQID_IntroMessages {
+  position: relative;
+}
+.LLQID_IntroMessage {
+  letter-spacing: 0.2em;
+  opacity: 0;
+  &:nth-child(1) {
+    font-size: 1.66rem;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+  }
+  &:nth-child(2) {
+    font-size: 3.33rem;
+    @media (max-width: $screen-xs-max) {
+      font-size: 2.7rem;
+    }
+  }
+  &:nth-child(3) {
+    font-size: 1.66rem;
+    position: absolute;
+    top: 100%;
+    right: 0;
+  }
+}
+.LLQID_IntroMessageBehind {
+  opacity: 0;
+  font-size: 3.33rem;
+  @include absolutecenter(y);
+  left: 50%;
+  z-index: 2;
+  letter-spacing: 0.2em;
+  @media (max-width: $screen-xs-max) {
+    font-size: 2.7rem;
+  }
+}
+

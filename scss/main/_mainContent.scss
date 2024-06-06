@@ -1,0 +1,172 @@
+#LLQID_mainContent {
+  @include positionFullWidth(fixed);
+  overflow: hidden;
+  background-color: #000;
+  z-index: 0;
+  opacity: 0;
+  @include transition(opacity);
+  &.isChanging {
+    .LLQID_mainContentItem {
+      &:not(.active) {
+        .LLQID_mainContentTitleInner {
+          cursor: wait;
+        }
+      }
+    }
+  }
+}
+.LLQID_mainContentBg {
+  @include positionFullWidth();
+  z-index: 0;
+  > * {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.LLQID_mainContentBgBehind {
+  @include positionFullWidth();
+  z-index: 0;
+}
+
+.LLQID_mainContentBgFront {
+  @include positionFullWidth();
+  z-index: 1;
+}
+.LLQID_mainContentInner {
+  padding-top: 8.88rem;
+  height: 100%;
+  @media (max-width: $screen-sm-max) {
+    padding-top: 6rem;
+  }
+  @media (max-width: $screen-xs-max) {
+    padding-top: 11rem;
+  }
+  @media (max-width: $screen-sm-max) and (max-height: 500px) {
+    padding-top: 0;
+  }
+}
+.LLQID_mainContentContainer {
+  width: 48.1rem;
+  margin: auto;
+  @media (max-width: $screen-sm-max) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  @media (max-width: $screen-xs-max) {
+    width: auto;
+    padding: 0 2rem;
+  }
+}
+
+.LLQID_mainContentItems {
+  position: relative;
+  .LLQID_liquidContainerInner {
+    left: 7rem;
+    top: 1rem;
+    transform: translate(0, 0);
+    z-index: 0;
+    @media (max-height: 720px) and (min-width: 720px){
+      width: (5.55rem * 0.7);
+      height: (5.55rem * 0.7);
+      top: 0.8rem;
+      left: 11rem;
+    }
+  }
+}
+
+.LLQID_mainContentItem {
+  z-index: 2;
+  position: relative;
+  margin-bottom: 1.66rem;
+  &.active {
+    .LLQID_mainContentDescInner {
+      transform: translateY(0);
+      visibility: visible;
+      opacity: 1;
+    }
+    .LLQID_mainContentTitleInner {
+      opacity: 1;
+    }
+  }
+}
+
+.LLQID_mainContentTitle {
+  font-size: 2.22em;
+  line-height: 1;
+  @media (min-width: $screen-md-min) {
+    text-align: right;
+    padding-right: 29rem;
+  }
+  @media (max-width: $screen-xs-max) {
+    font-size: 3rem;
+  }
+  @media (max-width: $screen-sm-max) {
+    margin-bottom: 1rem;
+  }
+  @media (max-height: 720px) and (min-width: 720px) {
+    font-size: (2.22em * 0.7);
+  }
+}
+
+.LLQID_mainContentTitleInner {
+  opacity: 0.3;
+  @include transition(all);
+  cursor: pointer;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.LLQID_mainContentDesc {
+  line-height: 2;
+  height: 0;
+  @include transition(all);
+  @media (min-width: $screen-md-min) {
+    padding-left: 20.55rem;
+  }
+  @media (max-width: $screen-sm-max) {
+    font-size: 1.4rem;
+  }
+  @media (max-width: $screen-xs-max) {
+    font-size: 2rem;
+  }
+  @media (max-height: 720px) and (min-width: 720px) {
+    font-size: (1rem * 0.7);
+  }
+  .isHl1 {
+    border-bottom: 0.16rem solid #f91d56;
+
+    &.connectLink {
+      color: #fff;
+      padding-bottom: 0.2rem;
+      text-decoration: none;
+      &:hover {
+        color: #ff1654;
+      }
+    }
+  }
+}
+
+.LLQID_mainContentDescInner {
+  @include transition((transform, opacity, visibility));
+  transform: translateY(1rem);
+  position: relative;
+  padding-top: 0.7rem;
+  opacity: 0;
+  visibility: hidden;
+  &:before {
+    content: '';
+    display: block;
+    height: 1px;
+    position: absolute;
+    top: -0.3rem;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    opacity: 0.4;
+  }
+}

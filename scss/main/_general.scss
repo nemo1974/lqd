@@ -1,0 +1,12 @@
+body {
+  overflow: hidden;
+}
+:root {
+  font-size: 18px;
+  @media (max-width: $screen-sm-max) {
+    font-size: 2vw;
+  }
+  @media (max-width: $screen-sm-max) and (max-height: 500px) {
+    font-size: 2vh;
+  }
+}

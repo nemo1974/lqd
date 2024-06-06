@@ -1,0 +1,67 @@
+.LLQID_headerHamburgerBtn {
+  background: none;
+  border: none;
+  outline: none !important;
+  width: 4rem;
+  height: 2rem;
+  cursor: pointer;
+  pointer-events: auto;
+  @media (min-width: $screen-sm-min) {
+    width: 28px;
+    height: 18px;
+  }
+  @include transitionFast(background,0.3s);
+  .LLQID_headerHamburgerBtnInner {
+    display: block;
+    position: relative;
+    height: 100%;
+    > * {
+      display: block;
+      height: 2px;
+      background-color: #fff;
+      text-align: left;
+      overflow: hidden;
+      text-indent: -9999px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      border-radius: 4px;
+      &:nth-child(1){
+        top: 0;
+        @include transitionFast((top,transform),(0.3s,0s));
+      }
+      &:nth-child(2){
+        top: 50%;
+        @include transitionFast((opacity,transform));
+        margin-top: -1px;
+      }
+      &:nth-child(3){
+        bottom: 0;
+        @include transitionFast((bottom,transform),(0.3s,0s));
+      }
+    }
+  }
+  &.active {
+    .LLQID_headerHamburgerBtnInner {
+      > * {
+        &:nth-child(1){
+          top: 50%;
+          margin-top: -1px;
+          transform:rotate(-45deg);
+          @include transitionFast((top,transform),(0s,0.3s));
+        }
+        &:nth-child(2){
+          opacity: 0;
+          transform: translateX(-1rem);
+          @include transition((opacity,transform));
+        }
+        &:nth-child(3){
+          bottom: 50%;
+          margin-bottom: -1px;
+          transform:rotate(45deg);
+          @include transitionFast((bottom,transform),(0s,0.3s));
+        }
+      }
+    }
+  }
+}

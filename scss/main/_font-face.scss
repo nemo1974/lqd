@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'GothamRounded-Book';
+  src: url('#{$pathFONT}/GothamRounded-Book.woff2') format('woff2'),
+      url('#{$pathFONT}/GothamRounded-Book.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GothamRounded-Light';
+  src: url('#{$pathFONT}/GothamRounded-Light.woff2') format('woff2'),
+      url('#{$pathFONT}/GothamRounded-Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GothamRounded-Bold';
+  src: url('#{$pathFONT}/GothamRounded-Bold.woff2') format('woff2'),
+      url('#{$pathFONT}/GothamRounded-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GothamRounded-Medium';
+  src: url('#{$pathFONT}/GothamRounded-Medium.woff2') format('woff2'),
+      url('#{$pathFONT}/GothamRounded-Medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+

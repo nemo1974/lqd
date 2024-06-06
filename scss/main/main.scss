@@ -1,0 +1,219 @@
+@charset "UTF-8";
+@import '_vars.scss';
+@import '_mixin.scss';
+@import '_reboot.scss';
+@import '_button.scss';
+@import '_font-face.scss';
+@import '_general.scss';
+@import '_liquid.scss';
+@import '_intro.scss';
+@import '_mainContent.scss';
+
+#LLQID_header {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  left: 0;
+  font-size: 0;
+  pointer-events: none;
+  opacity: 0;
+  .LLQID_headerContainer {
+    width: 100%;
+    max-width: 1060px;
+    margin: auto;
+    @media (max-width: $screen-md-max) {
+      padding: 1rem 2rem;
+    }
+  }
+  .LLQID_headerInner {
+    padding: 1rem 0;
+    position: relative;
+    .LLQID_headerHamburgerBtn {
+      @include absolutecenter(y);
+      right: 0;
+      z-index: 1;
+    }
+  }
+  .LLQID_headerBrand {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    pointer-events: auto;
+    img {
+      width: 6rem;
+      height: auto;
+      @media (min-width: $screen-sm-min) {
+        width: 50px;
+      }
+    }
+  }
+}
+
+
+.LLQID_headerSide {
+  pointer-events: auto;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(#000, 0.9);
+  z-index: 0;
+  padding: 4rem 3.33rem 0;
+  transform: translateX(10rem);
+  opacity: 0;
+  visibility: hidden;
+  // min-width: calc(50vw - calc(calc($screen-md-max / 2) - 3rem)); and some padding inside bar for align
+  min-width: calc(50vw - 446px);
+  @include transitionFast('all');
+  @media (min-width: $screen-sm-min) {
+    width: 24.444rem;
+  }
+}
+.LLQID_headerSideContainer {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.LLQID_headerSideInner {
+  font-size: 1rem;
+  padding: 0 0 1rem;
+  width: 100%;
+  @media (max-width: $screen-sm-max) {
+    font-size: 1.8rem;
+  }
+  @media (max-width: $screen-xs-max) {
+    font-size: 2.2rem;
+  }
+  a {
+    color: #fff;
+    &:hover {
+      color: $link-color;
+    }
+  }
+  .isTextSM {
+    font-size: 0.77rem;
+    margin-top: 0.1rem;
+    @media (max-width: $screen-sm-max) {
+      font-size: 1.4rem;
+    }
+    @media (max-width: $screen-xs-max) {
+      font-size: 1.8rem;
+    }
+  }
+  address {
+    font-family: 'GothamRounded-Book';
+    margin: 0;
+  }
+  a.isHL1 {
+    color: #fff;
+    border-bottom: 2px solid #ff1654;
+    display: inline-block;
+    padding-bottom: 0.2rem;
+    text-decoration: none;
+    &:hover {
+      color: #ff1654;
+    }
+  }
+  .LLQID_headerSideItem {
+    padding: 1rem 0;
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(#fff, 0.4);
+    }
+  }
+}
+
+html.LLQID_headerSide_show {
+  .LLQID_headerSide {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+}
+
+.LLQID_mainContentScrollSign {
+  @include absolutecenter(x);
+  bottom: 0;
+  color: #fff;
+  font-size: 0.66rem;
+  overflow: hidden;
+  @media (max-width: $screen-xs-max) {
+    display: none;
+  }
+  .LLQID_mainContentScrollSignInner {
+    position: relative;
+    padding-bottom: 45px;
+    animation: scrollSignParentMove 3s infinite;
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 40px;
+      @include absolutecenter(x);
+      bottom: 0;
+    }
+    &:before {
+      background-color: rgba(#fff,0.7);
+      animation: scrollSignVerticalLineBelow 3s infinite;
+    }
+    &:after {
+      background-color: #ff1654;
+      animation: scrollSignVerticalLineFront 3s infinite;
+    }
+  }
+}
+
+@keyframes scrollSignParentMove {
+  0%,60%, 100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(10px);
+  }
+}
+@keyframes scrollSignVerticalLineBelow {
+  0%, 10% {
+    height: 0;
+    bottom: 40px;
+  }
+  30% {
+    height: 40px;
+    bottom: 0;
+    opacity: 1;
+  }
+  60%, 100% {
+    opacity: 0;
+    height: 0;
+  }
+}
+@keyframes scrollSignVerticalLineFront {
+  0% {
+    height: 0;
+    bottom: 40px;
+  }
+  20% {
+    height: 40px;
+    bottom: 0;
+  }
+  40%, 100% {
+    height: 0;
+  }
+}
+
+.LLQID_mainContentScrollSign-enter-active, .LLQID_mainContentScrollSign-leave-active {
+  transition: transform .6s;
+}
+.LLQID_mainContentScrollSign-enter, .LLQID_mainContentScrollSign-leave-to {
+  transform: translate(-50%, 100px);
+}
