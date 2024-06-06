@@ -14,7 +14,4 @@
     "gulp-util": "^3.0.8",
     "vinyl-ftp": "^0.6.1"
   },
-  "dependencies": {
-    "fsevents": "^1.2.4"
-  }
 }
